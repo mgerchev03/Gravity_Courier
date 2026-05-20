@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Gravity Courier"
-run/main_scene="uid://ilpqet2tj2kw"
+run/main_scene="uid://c7edi51sg6r7g"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 

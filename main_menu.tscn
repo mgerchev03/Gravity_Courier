@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://c7edi51sg6r7g"]
+
+[ext_resource type="Script" uid="uid://bn5cyiqv6jm4h" path="res://main_menu.gd" id="1_06t4h"]
+
+[node name="MainMenu" type="Control" unique_id=2013415126]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1002543079]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -217.0
+offset_bottom = 217.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1235453686]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Play"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer" unique_id=1724697389]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1297452901]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "Quit"
+
+[node name="CreditsPanel" type="Panel" parent="." unique_id=1025395192]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CreditsPanel" unique_id=403582407]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CreditsPanel/MarginContainer" unique_id=1109261233]
+layout_mode = 2
+
+[node name="CreditsLabel" type="Label" parent="CreditsPanel/MarginContainer/VBoxContainer" unique_id=871057656]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Developed by Maryan Gerchev
+
+If you want to support my work, 
+you can do it via Revolut:
+https://revolut.me/mariangerchev"
+
+[node name="RevolutButton" type="Button" parent="CreditsPanel/MarginContainer/VBoxContainer" unique_id=480776493]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "👉 Support on Revolut 👈"
+
+[node name="BackButton" type="Button" parent="CreditsPanel/MarginContainer/VBoxContainer" unique_id=1920653894]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 40
+text = "Back"

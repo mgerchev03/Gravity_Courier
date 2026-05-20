@@ -9,21 +9,27 @@ var direction: Vector2 = Vector2.UP
 # Пазим какъв цвят е куршумът (1 = син, 2 = червен, 3 = зелен)
 var bullet_mode: int = 1
 
+@onready var laser_sprite = $Sprite2D # Точното име на Sprite2D възела ти тук
+
+
 func _ready() -> void:
 	# Свързваме куршума със системата за сблъсък
 	body_entered.connect(_on_body_entered)
 	
-	# Вземаме картинката ръчно. Ако твоят възел се казва по друг начин, промени името в кавичките!
+	# Намираме играча в групата "Player", за да разберем в какъв мод е в момента
+	var player = get_tree().get_first_node_in_group("Player")
+	if player != null:
+		# Вземаме текущия мод на играча (1, 2 или 3) и го прехвърляме на куршума
+		bullet_mode = player.current_mode
+	
+	# Вземаме картинката ръчно
 	var sprite = get_node_or_null("Sprite2D")
 	
-	# Ако намери картинката, тогава я оцветяваме
+	# Сменяме кадъра, за да се покаже само правилният лазер
 	if sprite != null:
-		if bullet_mode == 1:
-			sprite.modulate = Color(0.2, 0.6, 1.0) # Син лазер
-		elif bullet_mode == 2:
-			sprite.modulate = Color(1.0, 0.2, 0.2) # Червен лазер
-		elif bullet_mode == 3:
-			sprite.modulate = Color(0.2, 1.0, 0.2) # Зелен лазер
+		# Понеже твоят bullet_mode е 1, 2, 3, а кадрите (frames) започват от 0:
+		# 1 - 1 = 0 (Син) | 2 - 1 = 1 (Червен) | 3 - 1 = 2 (Зелен)
+		sprite.frame = bullet_mode - 1
 	else:
 		print("Грешка: Не намерих възел Sprite2D в куршума!")
 
